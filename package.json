@@ -1,0 +1,23 @@
+{
+  "name": "contactform-server",
+  "version": "0.0.1",
+  "description": "A local server/database to store contact details & messages sent via my profile page",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "simple-server"
+  ],
+  "author": "Milo Silva",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr0cket/contactform-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mr0cket/contactform-server/issues"
+  },
+  "homepage": "https://github.com/Mr0cket/contactform-server#readme"
+}
