@@ -1,5 +1,5 @@
 {
-  "name": "contactform-server",
+  "name": "contactform-api",
   "version": "0.0.1",
   "description": "A local server/database to store contact details & messages sent via my profile page",
   "main": "server.js",
@@ -27,5 +27,6 @@
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1",
     "progress": "^2.0.3"
-  }
+  },
+  "devDependencies": {}
 }
