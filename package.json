@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/Mr0cket/contactform-server/issues"
   },
-  "homepage": "https://github.com/Mr0cket/contactform-server#readme"
+  "homepage": "https://github.com/Mr0cket/contactform-server#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cowsay": "^1.4.0",
+    "form-data": "^3.0.0",
+    "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1",
+    "progress": "^2.0.3"
+  }
 }

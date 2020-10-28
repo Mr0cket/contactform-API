@@ -1,0 +1,22 @@
+#testing node features
+_node-testing.js
+response.js
+
+#node modules
+node_modules
+
+#learning node stuff
+/learning Node/
+_learning-node.js
+_guide-npm.js
+_guide-npx.js
+_guide-package-lock.json.js
+_guide-semver.js
+_guide-package.json.js
+
+#understanding data
+formData-json.txt
+formData-string.txt
+formData.txt
+http-request.js
+ServerResponse.js
