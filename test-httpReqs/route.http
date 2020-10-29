@@ -1,0 +1,17 @@
+GET http://localhost:666/mail
+
+###
+
+GET http://localhost:666/mail/5f9b08e16357de2b3e9e0914
+
+###
+
+POST http://localhost:666/mail
+
+###
+
+DELETE http://localhost:666/mail/5f9b0c5e200dae2c69a71550
+
+###
+
+PATCH http://localhost:666/mail/5f9b08e16357de2b3e9e0914

@@ -23,9 +23,10 @@
   "homepage": "https://github.com/Mr0cket/contactform-server#readme",
   "dependencies": {
     "chalk": "^4.1.0",
+    "cors": "^2.8.5",
     "cowsay": "^1.4.0",
     "express": "^4.17.1",
-    "form-data": "^3.0.0",
+    "express-formidable": "^1.2.0",
     "formidable": "^1.2.2",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.11",
