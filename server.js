@@ -2,6 +2,7 @@ const express = require('express');
 const formiddable = require('express-formidable');
 const app = express();
 const mongoose = require('mongoose');
+const dotenv = require('dotenv')
 const port = process.env.PORT || 666;
 
 // enable CORS policy for all requests!
