@@ -1,10 +1,9 @@
 const http = require('http');
 const hostname = 'localhost'
-const listeningPort = 666
+const listeningPort = 4000
 const fs = require('fs')
-const _ = require('')
-const formData = require('form-data')
 
+/* 
 function getBoundary(request) {
     console.log(`getting boundary...`)
     let contentType = request.headers['content-type']
@@ -13,7 +12,7 @@ function getBoundary(request) {
     let boundary = contentTypeString + boundaryPrefix
     console.log(`contentType: ${contentType}, contentTypeString: ${contentTypeString}`)
     return boundary
-  }
+  } */
 
 
 // chunk is the body (content) of the request, as a stream 
@@ -37,19 +36,23 @@ const requestListener = function (request, response) {
     console.log(request && `a ${request.method} request was made!`);
     console.log('reading strimm..')
     console.log('connection:', request.headers.connection)
-    if (request.headers['content-type'] === 'multipart/form-data') {
+/*     if (request.headers['content-type'] === 'multipart/form-data') {
         // Use latin1 encoding to parse binary files correctly. (don't know why yet)
         request.setEncoding('latin1')       
-    }
-    let boundary = getBoundary(request)
+    } */
+    /* let boundary = getBoundary(request)
     let regex = new RegExp(boundary + '|' + '\r\n', 'g')
     console.log(`boundary: ${boundary}`)
     request.on('data', (chunk) => {
 
         console.log(chunk.toString().split(regex).sort(() => true))
     })
+ */
+    let contactForm = formidable()
 
-
+    contactForm.parse(request, (err, fields) => {
+        console.log(`Fields parsed: ${fields}`);
+    })
 
 
     

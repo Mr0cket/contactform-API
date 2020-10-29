@@ -1,22 +1,27 @@
 const http = require('http');
-const hostname = '127.0.0.1'
-const listeningPort = 666
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose')
+const port = 666
 
-const requestListener = function (request, response) {
-    console.log(request && 'a request was made!');
-    response.writeHead(200);
-    // TODO: Create logic for handling 'cors pre-flight requests' and http 'post' requests.
-    response.setHeader('Content-Type', 'text/plain')
-    response.setHeader('Access-Control-Allow-Origin', '*')
-    response.setHeader('Access-Control-Allow-Headers', 'origin, X-requested-with, Content-Type, Accept')
-    response.end('Hello Milo');
-}
+// dotenv.config() - loads the .env file contents into process.env
+require('dotenv').config()
+// any variable in .env is accessible via process.env.<variableName>
 
-const server = http.createServer(requestListener);
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connection
 
-server.listen(listeningPort, hostname, () => {
-    console.log(`server is running/listening at http://${hostname}:${listeningPort}/`)
-});
+db.on('error', (error) => console.error(`database error: ${error}`))
+db.once('open', () => console.log('connected to database'))
+
+app.use(express.json())
+
+const messagesRouter = require('./routes/messages')
+app.use('/messages', messagesRouter)
+
+app.listen(port, () => console.log(`server started on http://localhost:${port}`));
+ 
+
 
 // need to implement CORS policy: Access-Control-Allow-Origin' header 
 // need to implement what to do with content in the request
