@@ -33,6 +33,9 @@ const mailRouter = require('./routes/mail');
 
 // create the api endpoint /mail to handle all calls to localhost:666/mail.
 app.use('/mail', mailRouter);
+app.use('/', (req, res) => {
+        res.status(200).json({message: 'call /mail for true api'})
+})
 
 app.listen(port, () => console.log(`server started on http://localhost:${port}`));
  
