@@ -1,6 +1,6 @@
 // import Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize')
-const sequelize = new Sequelize('postgres://milly@localhost:5432/profile-db')
+const sequelize = new Sequelize('postgres://millsy@localhost:5432/profile-db')
 
 
 // initialise postgres model ContactForm:
