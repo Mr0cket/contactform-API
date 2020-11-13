@@ -1,0 +1,19 @@
+GET http://localhost:666/contacts
+###
+POST http://localhost:666/contacts
+Content-Type: application/json
+
+{
+  "name": "Milo",
+  "email": "milo@milo.milo",
+  "message": "hello from REST client"
+}
+###
+PATCH http://localhost:666/contacts/3
+Content-Type: application/json
+
+{
+  "message": "You are awesome, Milo!"
+}
+###
+DELETE http://localhost:666/contacts/2

@@ -1,49 +1,32 @@
-const express = require('express');
-const formiddable = require('express-formidable');
-const app = express();
-const mongoose = require('mongoose');
-const port = process.env.PORT || 666;
-
-// enable CORS policy for all requests!
-// CORS is express middleware!
-const cors = require('cors');
-// set cors options
-
-app.use(cors());
-console.log('cors is enabled')
-
-// dotenv.config() - loads the .env file contents into process.env
+const express = require('express')
+const app = express()
+const chalk = require('chalk')
 require('dotenv').config()
-// any variable in .env is accessible via process.env.<variableName>
+cors = require('cors')
+app.use(cors())
+port = 666
+// import routes
+const httpsOptions = {
+    
+}
+const ContactsRouter = require('./routes/Contacts')
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
 
-db.on('error', (error) => console.error(`database error: ${error}`))
-db.once('open', () => console.log('connected to database'))
+/* sequelize.authenticate()
+    .then( () => console.log('Connection has been established successfully.'))
+        .catch((error) => console.error('Unable to connect to the database:', error))
+ */
+app.use('/contacts', ContactsRouter)
 
-// .use = middleware that allows you to run code to parse the request and response automatically,
-//  before it is passed to the requested route.
-//  express .use(middleWare) equivalent to http.createServer(requestListener)
-// however, .use() can be call as many times as needed.
-// app.use(formiddable());
+app.route('/')
+    .all((req, res) => {
+    res.send(`🎉you've reached the root directory!🎉 here - take some virtual 🍰 I deployed it myself.`)
+})
+app.route(/.*/).all((req,res) => {
+    res.status(404).send('there is no endpoint at this directory')
+})
+// will get this data from front end ContactForms
 
-// import mail.js express.router function (router) as mailRouter.
-const mailRouter = require('./routes/mail');
+app.listen(port,() => console.log(`server is live on: \n  ${chalk.blue(`http://localhost:${port}`)} &\n ${chalk.blue(`http://192.168.1.2:${port}`)} `))
 
-// create the api endpoint /mail to handle all calls to localhost:666/mail.
-app.use('/mail', mailRouter);
-
-app.listen(port, () => console.log(`server started on http://localhost:${port}`));
- 
-
-// app/server.use() a way of passing callback functions when a response is received.
-
-/* server.use(function(req, res, next){
-        next()
-}) */
-// presumably when I use fetch to 'http://localhost:666' it will hit this server.
-// when I use fetch to 'http://localhost:666/mail/', it will hit the mail route.
-// if use a 'post' in the client request header, and I use logic on server to check for 'post' header,
-// I can tell the server what to do with the body of the request (which will hopefully be the JSON form data!)
-// when it recieves the post request(with content.)
+// sequelize.close() - executed automatically when process terminates. (only needed to manually execute when creating multiple instances and need garbage collection)

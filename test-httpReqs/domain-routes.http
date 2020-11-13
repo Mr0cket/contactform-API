@@ -1,0 +1,10 @@
+GET https://homesterdam.ydns.eu:666
+###
+GET http://homesterdam.ydns.eu:666/contacts
+
+###
+
+POST https://homesterdam.ydns.eu:666/mail
+
+###
+
