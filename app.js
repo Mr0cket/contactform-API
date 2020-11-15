@@ -22,7 +22,7 @@ cors = require('cors')
 app.use(cors())
 
 // ports
-const httpPort = 80
+const httpPort = process.env.PORT || 80
 const httpsPort = 443
 
 // import routes
