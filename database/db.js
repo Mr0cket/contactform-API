@@ -1,6 +1,5 @@
 // import Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize')
-const sequelize = new Sequelize('postgres://millsy@localhost:5432/')
 const sequelize = new Sequelize('profile-db', 'millsy', null, {
         // gimme postgres, please!
         dialect: 'postgres'
