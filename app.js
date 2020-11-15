@@ -5,14 +5,6 @@ const chalk = require('chalk')
 // http(s) modules & https options (TLS certificates) to authenticate https connection
 const http = require('http')
 const https = require('https')
-/*   import private key and 'full chain'...?
-const private_key = require('/etc/letsencrypt/live/accounts/acme-v02.api.letsencrypt.org/directory/9882f4346e5722106e8341325aa57ddb/private_key.json')
-const cetificate = require('/etc/letsencrypt/live/accounts/acme-v02.api.letsencrypt.org/directory/9882f4346e5722106e8341325aa57ddb/privkey.pem')
-
-const httpsOptions = {
-    key: fs.readFileSync(),
-    cert: fs.readFileSync('/etc/letsencrypt/live/my_api_url/fullchain.pem'),
-  } */
 
 // env
 require('dotenv').config()

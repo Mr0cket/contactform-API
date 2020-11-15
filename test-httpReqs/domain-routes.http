@@ -1,4 +1,4 @@
-POST http://172.105.93.205:666/contacts
+POST https://contactforms-api.herokuapp.com/contacts/
 Content-Type: application/json
 
 {
