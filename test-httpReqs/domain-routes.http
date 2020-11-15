@@ -1,10 +1,8 @@
-GET https://homesterdam.ydns.eu:666
-###
-GET http://homesterdam.ydns.eu:666/contacts
+POST http://172.105.93.205:666/contacts
+Content-Type: application/json
 
-###
-
-POST https://homesterdam.ydns.eu:666/mail
-
-###
-
+{
+  "name": "Milo",
+  "email": "milo@milo.milo",
+  "message": "hello from REST client"
+}
