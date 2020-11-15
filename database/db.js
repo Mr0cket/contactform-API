@@ -1,6 +1,6 @@
 // import Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize')
-const sequelize = new Sequelize('profile-db', 'millsy', null, {
+const sequelize = new Sequelize('profile-db', 'millsy', '1234', {
         // gimme postgres, please!
         dialect: 'postgres'
       })
