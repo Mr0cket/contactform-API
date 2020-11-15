@@ -1,4 +1,5 @@
 // import Sequelize
+// use posgres to store contactForms
 const { Sequelize, Model, DataTypes } = require('sequelize')
 const sequelize = new Sequelize('profile-db', 'millsy', '1234', {
         // gimme postgres, please!

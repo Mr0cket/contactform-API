@@ -5,9 +5,14 @@ const chalk = require('chalk')
 // http(s) modules & https options (TLS certificates) to authenticate https connection
 const http = require('http')
 const https = require('https')
+/*   import private key and 'full chain'...?
+const private_key = require('/etc/letsencrypt/live/accounts/acme-v02.api.letsencrypt.org/directory/9882f4346e5722106e8341325aa57ddb/private_key.json')
+const cetificate = require('/etc/letsencrypt/live/accounts/acme-v02.api.letsencrypt.org/directory/9882f4346e5722106e8341325aa57ddb/privkey.pem')
+
 const httpsOptions = {
-    
-}
+    key: fs.readFileSync(),
+    cert: fs.readFileSync('/etc/letsencrypt/live/my_api_url/fullchain.pem'),
+  } */
 
 // env
 require('dotenv').config()
@@ -23,11 +28,6 @@ const httpsPort = 443
 // import routes
 const ContactsRouter = require('./routes/Contacts')
 
-
-/* sequelize.authenticate()
-    .then( () => console.log('Connection has been established successfully.'))
-        .catch((error) => console.error('Unable to connect to the database:', error))
- */
 app.use('/contacts', ContactsRouter)
 
 app.route('/')
@@ -39,7 +39,7 @@ app.route(/.*/).all((req,res) => {
 })
 // will get this data from front end ContactForms
 
-http.createServer(app).listen( httpPort, () => console.log(`httpServer is live on: \n  ${chalk.blue(`http://http://172.105.93.205:${httpPort}`)} `))
+app.listen( httpPort, () => console.log(`httpServer is live on: \n  ${chalk.blue(`http://http://172.105.93.205:${httpPort}`)} `))
 
 // https.createServer(app).listen( httpsPort, () => console.log(`httpsServer is live on: \n  ${chalk.blue(`https://http://172.105.93.205:${httpsPort}`)} `))
 
